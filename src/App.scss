@@ -1,0 +1,178 @@
+$enable-responsive-font-sizes: true;
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+$keys-size: 70px;
+$q-column: 4;
+
+//AwesomeButton variables
+.aws-btn {
+    --button-default-height: #{$keys-size};
+    --button-default-font-size: 1.5rem;
+    --button-default-border-radius: 0px;
+    --button-horizontal-padding: 0px;
+    --button-raise-level: 0px;
+    --button-hover-pressure: 2;
+    --transform-speed: 0.2s;
+    --button-primary-color: hsl(222, 23%, 36%);
+    --button-primary-color-dark: #2a3143;
+    --button-primary-color-light: #d4d9e4;
+    --button-primary-color-hover: hsl(222, 23%, 26%);
+    --button-primary-color-active: hsl(222, 23%, 46%);
+    --button-primary-border: none;
+}
+
+#app{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+}
+
+#calculator{
+    border-style: solid;
+    border-color: hsl(222, 23%, 36%);
+    width: #{$keys-size * $q-column + 6px};
+    background-color: hsl(222, 23%, 36%);
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.507);
+}
+
+#screen *{
+    color:  #d4d9e4;
+    text-align: right;
+    margin: auto;
+    padding-right: 1px;
+    width: 100%;
+    overflow-x: auto;
+}
+
+#display{
+    display: flex;
+    justify-content: space-between;
+    border-bottom-style: solid;
+    border-width: thin;
+    font-size: 2rem;
+}
+
+#deg-rad-display{
+    font-size: 1rem;
+    flex-basis: 3rem;
+}
+
+#result{
+    font-size: 3rem;
+}
+
+#menu{
+    width: 100%;
+}
+
+//Selecting the menu button
+#menu button:first-child{
+    font-size: 1rem;
+    height: 42px;
+    --button-primary-color: hsl(211, 100%, 50%);
+    --button-primary-color-dark: #2a3143;
+    --button-primary-color-light: #d4d9e4;
+    --button-primary-color-hover: hsl(211, 100%, 40%);
+    --button-primary-color-active: hsl(211, 100%, 60%);
+    --button-primary-border: none;
+    width: 100%;
+}
+
+#menu-option{
+    display: none;
+}
+
+// Selecting the menu Tabs
+#menu-option nav{
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 1px;
+}
+
+// Selecting the menu Tab
+#menu-option nav a{
+    padding: 1px 15px;
+}
+
+#basics-tab , #trigonometry-tab{
+    color: #d4d9e4;
+    margin-left: 5px;
+    //28px is the height of the Tabs and 1px is its padding-top
+    height: #{$keys-size * 5 - 28px -1px};
+}
+
+#basics-tab button , #trigonometry-tab button{
+    @extend .btn;
+    @extend .btn-primary;
+    margin-right: 5px;
+}
+
+#menu-option p{
+    margin-bottom: 0px;
+}
+
+#menu-option hr{
+    margin-top: 5px;
+    margin-bottom: 0px;
+    margin-left: -5px;
+
+}
+#dgree-rad-p{
+    display: inline-block;
+    margin-left: 5px;
+    font-style: italic;
+}
+
+#keyboard{
+    display: initial;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+#keyboard button{
+    @extend .aws-btn;
+    width: #{100% / $q-column};
+}
+
+//Selecting the CC button
+#keyboard button:nth-child(3){
+    --button-primary-color: hsl(348, 83%, 47%);
+    --button-primary-color-dark: #2a3143;
+    --button-primary-color-light: #d4d9e4;
+    --button-primary-color-hover: hsl(348, 83%, 37%);
+    --button-primary-color-active: hsl(348, 83%, 57%);
+    --button-primary-border: none;
+    width: #{100% / $q-column * 2};
+}
+
+//Selecting the / , * , - , + , buttons
+#keyboard button:nth-child(7),
+#keyboard button:nth-child(11),
+#keyboard button:nth-child(15),
+#keyboard button:nth-child(19){
+    --button-primary-color: hsl(313, 96%, 18%);
+    --button-primary-color-dark: #2a3143;
+    --button-primary-color-light: #d4d9e4;
+    --button-primary-color-hover: hsl(313, 96%, 8%);
+    --button-primary-color-active: hsl(313, 96%, 28%);
+    --button-primary-border: none;
+}
+
+//Selecting the = button
+#keyboard button:nth-child(18){
+    --button-primary-color: hsl(120, 100%, 25%);
+    --button-primary-color-dark: #2a3143;
+    --button-primary-color-light: #d4d9e4;
+    --button-primary-color-hover: hsl(120, 100%, 15%);
+    --button-primary-color-active: hsl(120, 100%, 35%);
+    --button-primary-border: none;
+}
+
+#clear{
+    width: 50%;
+}
